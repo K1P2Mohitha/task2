@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Modern Portfolio</title>
+<style>
+  /* Reset & base */
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f7fa; color: #333;
+    line-height: 1.5;
+  }
+  a {
+    color: #0366d6; text-decoration: none;
+  }
+  a:hover { text-decoration: underline; }
+
+  header {
+    background: #051622; color: #fff;
+    padding: 1rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    position: sticky; top: 0; z-index: 10;
+  }
+  nav ul {
+    display: flex; list-style:none; gap:1.5rem; margin:0; padding:0;
+  }
+  nav a {
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s;
+  }
+  nav a:hover {
+    color: #39a0ed;
+  }
+  .logo {
+    font-weight: 700; font-size: 1.25rem; letter-spacing: 2px;
+  }
+
+  main {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  /* Hero */
+  #hero {
+    text-align: center;
+    background: linear-gradient(135deg,#0366d6 0%,#0d3b66 100%);
+    color: white; padding: 4rem 1rem; border-radius: 10px;
+  }
+  #hero h1 {
+    margin:0 0 0.5rem; font-size: 2.75rem; font-weight: 900;
+  }
+  #hero p {
+    font-size: 1.25rem; max-width: 600px; margin: 0 auto 1.5rem;
+  }
+  #hero a.cta {
+    background: #f4ac45; color:#051622;
+    padding:0.75rem 1.75rem;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 6px 15px rgba(244,172,69,0.5);
+    display: inline-block;
+    transition: background 0.3s;
+  }
+  #hero a.cta:hover {
+    background: #d18b27;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    color: #051622;
+  }
+  /* About */
+  #about p {
+    max-width: 650px;
+    margin: 0 auto;
+    color: #2e3a59;
+    font-size: 1.125rem;
+  }
+
+  /* Projects */
+  #projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 1.5rem;
+  }
+  .project {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: rgba(0,0,0,0.1) 0 6px 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  .project img {
+    width: 100%; border-radius: 8px;
+    object-fit: cover; height: 140px;
+    margin-bottom: 1rem;
+  }
+  .project h3 {
+    margin: 0 0 0.5rem;
+    font-weight: 700;
+    color: #051622;
+  }
+  .project p {
+    flex-grow: 1;
+    margin: 0 0 1rem;
+    color: #51638a;
+    font-size: 0.95rem;
+  }
+  .project a {
+    align-self: flex-start;
+    font-weight: 600;
+    color: #0366d6;
+  }
+  .project a:hover {
+    text-decoration: underline;
+  }
+
+  /* Contact */
+  #contact form {
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  label {
+    font-weight: 600;
+    color: #051622;
+  }
+  input, textarea {
+    padding: 0.75rem 1rem;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    resize: vertical;
+  }
+  input:focus, textarea:focus {
+    border-color: #0366d6;
+    outline: none;
+    box-shadow: 0 0 5px #0366d6aa;
+  }
+  button {
+    background: #0366d6;
+    color: white;
+    font-weight: 700;
+    border: none;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  button:hover {
+    background: #024ea2;
+  }
+
+  footer {
+    text-align: center;
+    padding: 1rem 0 2rem;
+    font-size: 0.85rem;
+    color: #6b7c93;
+  }
+
+  /* Responsive */
+  @media(min-width: 768px) {
+    main {
+      grid-template-columns: 1fr 1fr;
+    }
+    #hero {
+      padding: 6rem 2rem;
+    }
+    #hero h1 {
+      font-size: 3.75rem;
+    }
+    #hero p {
+      font-size: 1.5rem;
+    }
+    #contact form {
+      max-width: 600px;
+    }
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo" tabindex="0">K P Mohitha</div>
+  <nav aria-label="Primary">
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="hero" role="banner">
+    <h1>Hello, I am K P Mohitha</h1>
+    <p>Front-end Developer. Crafting sleek, responsive websites and user interfaces.</p>
+    <a href="#projects" class="cta">See My Work</a>
+  </section>
+
+  <section id="about" role="region" aria-labelledby="about-title">
+    <h2 id="about-title">About Me</h2>
+    <p>I love building beautiful, modern websites and enhancing user experiences through thoughtful design and clean code.</p>
+  </section>
+
+  <section id="projects" role="region" aria-labelledby="projects-title">
+    <h2 id="projects-title">Projects</h2>
+    <article class="project" tabindex="0">
+      <img src="https://source.unsplash.com/featured/?website" alt="Project 1 Screenshot" />
+      <h3>Portfolio Website</h3>
+      <p>A modern portfolio showcasing design and development skills, built with HTML, CSS, and JS.</p>
+      <a href="#" aria-label="View Portfolio Website">View Project</a>
+    </article>
+    <article class="project" tabindex="0">
+      <img src="https://source.unsplash.com/featured/?app" alt="Project 2 Screenshot" />
+      <h3>Task Management App</h3>
+      <p>A productivity app with user-friendly interface for organizing daily tasks.</p>
+      <a href="#" aria-label="View Task Management App">View Project</a>
+    </article>
+    <article class="project" tabindex="0">
+      <img src="https://source.unsplash.com/featured/?dashboard" alt="Project 3 Screenshot" />
+      <h3>Admin Dashboard</h3>
+      <p>Responsive dashboard layout for performance monitoring and analytics.</p>
+      <a href="#" aria-label="View Admin Dashboard">View Project</a>
+    </article>
+  </section>
+
+  <section id="contact" role="region" aria-labelledby="contact-title">
+    <h2 id="contact-title">Contact Me</h2>
+    <form>
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" placeholder="K P Mohitha" required />
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" placeholder="Your email" required />
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  &copy; 2024 K P Mohitha. All rights reserved.
+</footer>
+
+</body>
+</html>
+
